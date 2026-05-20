@@ -97,8 +97,8 @@
   }
 
   /* PAGES */
-  .page { display: none; }
-  .page.active { display: block; }
+  .page { display: none; width: 100%; min-height: 100vh; position: relative; }
+  .page.active { display: block !important; width: 100% !important; min-height: 100vh !important; position: relative !important; }
 
   /* ── HOMEPAGE ── */
   .hero {
@@ -1634,6 +1634,9 @@ function showPage(p) {
   const activePage = document.getElementById('page-'+p);
   activePage.classList.add('active');
   activePage.style.display = 'block';
+  activePage.style.width = '100%';
+  activePage.style.minHeight = '100vh';
+  activePage.style.position = 'relative';
   const navEl = document.getElementById('nav-'+p);
   if(navEl) navEl.classList.add('active');
   const mobEl = document.getElementById('mob-nav-'+p);
