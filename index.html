@@ -9,25 +9,18 @@
 <script src="https://js.stripe.com/v3/"></script>
 <style>
   :root {
-    --black: #ffffff;
-    --white: #0d3333;
+    --black: #0a0a0a;
+    --white: #f5f3ee;
     --yellow: #0abfbf;
     --yellow-dim: #089898;
-    --gray: #f0fafa;
-    --gray2: #dff2f2;
-    --muted: #5a8f8f;
-    --green: #059669;
-    --red: #dc2626;
-    --orange: #d97706;
-    --border: rgba(10,100,100,0.13);
+    --gray: #1a1a1a;
+    --gray2: #2a2a2a;
+    --muted: #888;
+    --green: #3ddc84;
+    --red: #ff5c5c;
+    --orange: #ffaa44;
+    --border: rgba(255,255,255,0.08);
   }
-  /* Force body and page backgrounds */
-  body { background-color: #ffffff !important; color: #0d3333 !important; }
-  .page { background-color: #ffffff; }
-  .step-card { background: #f0fafa !important; border: 1px solid rgba(10,100,100,0.13) !important; }
-  .field-input { background: #ffffff !important; color: #0d3333 !important; border: 1px solid rgba(10,100,100,0.2) !important; }
-  .booking-panel { background: #f0fafa !important; }
-  .rent-step { background: transparent; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
@@ -416,8 +409,7 @@
 
     #page-rent > div { padding: 1.25rem 1rem; }
     .rent-layout { grid-template-columns: 1fr; gap: 1rem; }
-    .booking-panel { position: fixed; bottom: calc(68px + env(safe-area-inset-bottom)); left: 0; right: 0; border-radius: 18px 18px 0 0; border-bottom: none; max-height: 85vh; overflow-y: auto; z-index: 140; transform: translateY(100%); transition: transform .3s ease; }
-    .booking-panel.slide-up { transform: translateY(0); }
+/* booking panel removed — new flow uses step pages */
     .booking-panel-toggle {
       display: flex; align-items: center; justify-content: space-between;
       background: var(--yellow); color: var(--black);
@@ -462,7 +454,9 @@
   }
 
   /* ── BOOKING FLOW ── */
-  .rent-step { animation: fadeIn .25s ease; }
+  .rent-step { animation: fadeIn .25s ease; display: block; }
+  #page-rent { background: var(--black); min-height: 100vh; }
+  #page-rent.active { display: block !important; }
   @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
 
   .step-card { background:var(--black);border:1px solid var(--border);border-radius:18px;padding:2rem; }
